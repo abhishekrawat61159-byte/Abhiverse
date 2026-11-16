@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AbhiVerse</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#101010;color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ background:#1b1b1b;padding:18px;
+ border-bottom:2px solid #ff7900;
+ display:flex;justify-content:space-between;
+ align-items:center;
+}
+.logo{font-size:27px;font-weight:bold;color:#ff7900}
+button{
+ background:#ff7900;color:#111;
+ border:0;border-radius:10px;
+ padding:11px 17px;font-weight:bold;
+ cursor:pointer;
+}
+nav{
+ display:flex;justify-content:space-around;
+ padding:15px 5px;background:#202020;
+ position:sticky;top:0;
+}
+nav button{background:transparent;color:white}
+nav button.active{color:#ff7900}
+main{max-width:500px;margin:auto;padding:15px}
+h2{color:#ff7900}
+.card{
+ background:#202020;border-radius:15px;
+ padding:17px;margin:15px 0;
+}
+.video{
+ height:290px;border-radius:12px;
+ background:linear-gradient(145deg,#ff7900,#351500);
+ display:flex;align-items:center;
+ justify-content:center;font-size:25px;
+}
+.actions{display:flex;gap:12px;margin-top:15px}
+.actions button{flex:1}
+input{
+ width:100%;padding:13px;margin:8px 0;
+ border-radius:9px;border:1px solid #555;
+ background:#292929;color:white;
+}
+.page{display:none}
+.page.active{display:block}
+footer{text-align:center;color:#aaa;padding:25px}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">🟠 AbhiVerse</div>
+<button onclick="alert('Welcome to AbhiVerse!')">Profile</button>
+</header>
+
+<nav>
+<button class="active" onclick="showPage('home',this)">Home</button>
+<button onclick="showPage('reels',this)">Reels</button>
+<button onclick="showPage('create',this)">＋ Create</button>
+<button onclick="showPage('profile',this)">Profile</button>
+</nav>
+
+<main>
+<section id="home" class="page active">
+<h2>Welcome to AbhiVerse 🚀</h2>
+<p>Express yourself. Create your world.</p>
+<div class="card">
+<h3>✨ Discover AbhiVerse</h3>
+<p>Share your creativity with the world.</p>
+<button onclick="showPage('reels')">Explore Reels</button>
+</div>
+</section>
+
+<section id="reels" class="page">
+<h2>AbhiVerse Reels 🎬</h2>
+<div class="card">
+<div class="video">▶ Your Reel</div>
+<h3>@AbhiVerse Creator</h3>
+<div class="actions">
+<button onclick="this.innerText='❤️ Liked'">🤍 Like</button>
+<button onclick="document.getElementById('comment').focus()">💬 Comment</button>
+<button onclick="alert('Share your Reel!')">↗ Share</button>
+</div>
+<input id="comment" placeholder="Write a comment...">
+<button onclick="alert('Comment added!')">Post Comment</button>
+</div>
+</section>
+
+<section id="create" class="page">
+<h2>Create Your Reel 🎥</h2>
+<div class="card">
+<p>Select a video from your phone</p>
+<input type="file" accept="video/*">
+<p>Or record your own video using your camera.</p>
+<input type="file" accept="video/*" capture="user">
+<p>Add a caption</p>
+<input placeholder="Write something...">
+<button onclick="alert('Upload feature will be connected next!')">Create Reel</button>
+</div>
+</section>
+
+<section id="profile" class="page">
+<h2>My Profile 👤</h2>
+<div class="card">
+<h3>AbhiVerse Creator</h3>
+<p>Welcome to my world!</p>
+<p>Followers: 0 | Following: 0</p>
+<button onclick="alert('Profile editing coming soon!')">Edit Profile</button>
+</div>
+</section>
+</main>
+
+<footer>© 2026 AbhiVerse | Create Your Universe 🟠</footer>
+
+<script>
+function showPage(id,btn){
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ if(btn)btn.classList.add('active');
+}
+</script>
+</body>
+  </html>
+  
